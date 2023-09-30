@@ -1,0 +1,8 @@
+FROM oven/bun
+
+WORKDIR /usr/app
+
+COPY package.json ./
+COPY bun.lockb ./
+
+RUN bun i --ignore-scripts --frozen-lockfile

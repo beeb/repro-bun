@@ -1,0 +1,19 @@
+name: build docker images
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  docker-bun:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Bun docker image
+        run: docker build -f Dockerfile.bun -t bun .
+  docker-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Node docker image
+        run: docker build -f Dockerfile.npm -t npm .
